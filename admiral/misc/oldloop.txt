@@ -1,0 +1,49 @@
+int skippedFrames = 0;
+while(tickCount < 1000)
+{
+    this.debug("\nTick: " + this.tickCount + "\nStart time: " + this.startTimeInMillis);
+
+    //If we're late/on time to update
+    if(this.getTickDifference() >= 0)
+    {
+        System.out.println("Late or on time, update");
+        this.update();
+    }
+
+    //Render if we're on time, render and wait when early, skip if late
+    if (this.getTickDifference() < 0 && skippedFrames == 5)
+    {
+        System.out.println("Behind, skip this frame");
+        skippedFrames++;
+    }
+    else
+    {
+        //TODO: Use a thread here so we can start computing the next task while rendering. Only render one frame at a time though
+        System.out.println("Render");
+        this.render();
+
+        if(this.getTickDifference() >= 0)
+        {
+            System.out.println("Ahead, pause");
+            this.sleep((int) this.getTickDifference());
+        }
+        else
+        {
+            System.out.println("Not ahead, don't pause.");
+        }
+    }
+
+    //Frigate jon = new Frigate("Frigate ");
+
+    this.debug("End Time: " + this.getTimeInMillis());
+    this.tickCount++;
+    this.lastTickInMillis = this.getTimeInMillis();
+}
+
+
+double totalTime = this.getTimeInMillis() - this.startTimeInMillis;
+this.debug("\nTotal Time: " + totalTime + "ms for " + this.tickCount + " frames");
+double avgTimePerFrame = totalTime / this.tickCount;
+this.debug("Time per frame: " + avgTimePerFrame + "ms");
+double fps = 1000 * this.tickCount / totalTime;
+this.debug("FPS " + fps);
