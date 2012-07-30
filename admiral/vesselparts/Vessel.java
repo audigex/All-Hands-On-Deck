@@ -5,7 +5,6 @@ import admiral.vesselcontrol.Role;
 import admiral.worldplaces.Harbour;
 import admiral.vesselcontrol.Strategy;
 import admiral.vesselcontrol.PropulsionMethod;
-import admiral.vesselparts.Deck;
 import java.util.ArrayList;
 
 /**
