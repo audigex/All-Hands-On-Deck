@@ -50,12 +50,12 @@ public class GameState extends Model
             try
             {
                 //TODO: Change to loadLast() or autoLoad() or chooseLoad() depending on implementation
-                //TODO: This currently uses the auto-save location... probably better to use an option to choose what to load
-                GameLoader loader = new GameLoader();
-                GameState.INSTANCE = loader.load();
+                //TODO: This currently uses the auto-save location... probably better to use an option to choose what to load                
+                GameLoader loader = new GameLoader();                
+                GameState.INSTANCE = loader.load();                
             }
             catch(NoAutoSaveFileException e)
-            {
+            {                
                 GameState.INSTANCE = new GameState();
             }
             catch (CannotLoadException e)

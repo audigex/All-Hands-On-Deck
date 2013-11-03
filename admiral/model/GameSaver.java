@@ -26,6 +26,7 @@ public class GameSaver
             }
             catch(CannotSaveException e)
             {
+                System.out.println(e.getMessage());
                 //TODO: Work out what the fuck to do here. This is hardly giving up gracefully!
                 //      Extend Runnable to pass a message back?
             }

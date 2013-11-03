@@ -36,8 +36,8 @@ public class GameLoader
     {
         try
         {
-            SaveFile saveFile = new SaveFile(saveLocation);
-            this.loadStream = new FileInputStream(saveFile.getFile());
+            SaveFile saveFile = new SaveFile(saveLocation);            
+            this.loadStream = new FileInputStream(saveFile.getFile());            
         }
         catch(FileNotFoundException e)
         {
@@ -61,11 +61,11 @@ public class GameLoader
     {
         try
         {
-            //FileInputStream saveFile = new FileInputStream(this.location);
-            ObjectInputStream restore = new ObjectInputStream(loadStream);
-            Object obj = restore.readObject();
-            GameState newState = (GameState) restore.readObject();
-            
+            //FileInputStream saveFile = new FileInputStream(this.location);            
+            ObjectInputStream restore = new ObjectInputStream(loadStream);           
+            Object obj = restore.readObject();            
+            GameState newState = (GameState) restore.readObject();            
+           
             restore.close();
 
             //GameState.LAST_SAVE = GameUtilities.getTime();
@@ -85,8 +85,8 @@ public class GameLoader
         }
         catch(IOException e)
         {
-            //GameUtilities.exceptionDebug(e);            
-            throw new CannotLoadException("GameLoader: IOException - no object to read or problem reading object");
+            //GameUtilities.exceptionDebug(e);          
+            throw new CannotLoadException("GameLoader: IOException - no object to read or problem reading object.");
         }
     } 
 
