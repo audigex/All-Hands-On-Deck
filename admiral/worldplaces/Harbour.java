@@ -6,6 +6,8 @@ package admiral.worldplaces;
  */
 public class Harbour
 {
+    private Region belongsTo;    
+    
     public Harbour()
     {
         

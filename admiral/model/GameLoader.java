@@ -60,15 +60,12 @@ public class GameLoader
     public GameState load() throws CannotLoadException
     {
         try
-        {
-            //FileInputStream saveFile = new FileInputStream(this.location);            
+        {            
             ObjectInputStream restore = new ObjectInputStream(loadStream);           
             Object obj = restore.readObject();            
             GameState newState = (GameState) restore.readObject();            
            
-            restore.close();
-
-            //GameState.LAST_SAVE = GameUtilities.getTime();
+            restore.close();            
 
             return newState;
             
@@ -85,6 +82,7 @@ public class GameLoader
         }
         catch(IOException e)
         {
+            e.printStackTrace();
             //GameUtilities.exceptionDebug(e);          
             throw new CannotLoadException("GameLoader: IOException - no object to read or problem reading object.");
         }

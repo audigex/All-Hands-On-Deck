@@ -1,5 +1,7 @@
 package admiral.worldplaces;
 
+import admiral.Faction;
+
 /**
  *
  * @author jon
@@ -7,6 +9,7 @@ package admiral.worldplaces;
 public class Region
 {
     private String name;
+    private Faction owner;
 
     public Region(String n)
     {
