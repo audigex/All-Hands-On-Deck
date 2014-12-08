@@ -1,10 +1,12 @@
 package admiral.weather;
 
+import java.io.Serializable;
+
 /**
  *
  * @author jon
  */
-public class Temperature
+public class Temperature implements Serializable 
 {
     //Value - stored as Celsius (most natural to author)
     private float value;

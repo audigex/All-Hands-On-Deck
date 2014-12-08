@@ -5,13 +5,14 @@
 
 package admiral.weather;
 
+import java.io.Serializable;
 import javax.swing.ImageIcon;
 
 /**
  *
  * @author jon
  */
-public enum Wind
+public enum Wind implements Serializable 
 {
 
     DOLDRUM

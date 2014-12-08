@@ -59,7 +59,7 @@ public class GameState extends Model
                 GameState.INSTANCE = new GameState();
             }
             catch (CannotLoadException e)
-            {
+            {               
                 GameState.INSTANCE = new GameState();
             }            
         }

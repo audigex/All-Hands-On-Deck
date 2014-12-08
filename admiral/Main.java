@@ -18,8 +18,20 @@ public class Main
      */
     public static void main(String[] args)
     {
-        MainWindow view = new MainWindow();
+        //MainWindow view = new MainWindow();
         admiral.GameController gameInstance = new admiral.GameController();
     }
 
+    public static void sleep(int time)
+    {
+        //GameUtilities.debug("Sleeping for: " + time + "ms");
+        try
+        {
+            Thread.sleep(time);
+        }
+        catch(Exception e)
+        {
+            GameUtilities.debug("Couldn't sleep");
+        }
+    }
 }

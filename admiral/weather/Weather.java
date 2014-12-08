@@ -1,12 +1,12 @@
 package admiral.weather;
 
-import admiral.weather.Temperature;
+import java.io.Serializable;
 
 /**
  *
  * @author jon
  */
-public class Weather
+public class Weather implements Serializable 
 {
     private Wind currentWind;
     private Temperature temperature;

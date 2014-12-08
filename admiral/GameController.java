@@ -70,6 +70,7 @@ public class GameController implements Controller
         this.mainWindow.addWindowListener(mainWindowListener);
 
         this.gameState = GameState.getInstance();
+        
     }
 
     private void setupGame()

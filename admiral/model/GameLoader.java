@@ -1,9 +1,7 @@
 package admiral.model;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.ObjectInputStream;
+import admiral.Main;
+import java.io.*;
 
 /**
  *
@@ -33,10 +31,10 @@ public class GameLoader
     }
 
     public final void init(String saveLocation) throws CannotLoadException
-    {
+    {        
         try
-        {
-            SaveFile saveFile = new SaveFile(saveLocation);            
+        {            
+            SaveFile saveFile = new SaveFile(saveLocation);                        
             this.loadStream = new FileInputStream(saveFile.getFile());            
         }
         catch(FileNotFoundException e)
@@ -61,11 +59,11 @@ public class GameLoader
     {
         try
         {            
-            ObjectInputStream restore = new ObjectInputStream(loadStream);           
-            Object obj = restore.readObject();            
-            GameState newState = (GameState) restore.readObject();            
+            ObjectInputStream gameRestore = new ObjectInputStream(this.loadStream);                                  
+            Object obj = gameRestore.readObject();              
+            GameState newState = (GameState) obj;            
            
-            restore.close();            
+            gameRestore.close();            
 
             return newState;
             
@@ -82,10 +80,12 @@ public class GameLoader
         }
         catch(IOException e)
         {
-            e.printStackTrace();
-            //GameUtilities.exceptionDebug(e);          
-            throw new CannotLoadException("GameLoader: IOException - no object to read or problem reading object.");
+            //GameUtilities.exceptionDebug(e);        
+            System.out.println(e.getMessage());
+            System.exit(0);
+            throw new CannotLoadException("GameLoader: IOException - no object to read or problem reading object.");          
         }
+        
     } 
 
 }

@@ -67,6 +67,7 @@ public class GameSaver
         {            
             //TODO: Use a given location. Probably means I need to extend Runnable above to accept parameters            
             SaveFile saveFile = new SaveFile(GameSaver.AUTO_SAVE_LOCATION);
+            
             FileOutputStream saveStream = new FileOutputStream(saveFile.getFile());
             ObjectOutputStream save = new ObjectOutputStream(saveStream);
             save.writeObject(GameState.getInstance());
